@@ -4,7 +4,7 @@ import Modal from './Modal'
 import Title from './Title'
 import UploadForm from './UploadForm'
 
-const App = () => {
+function App() {
     const [selectedImg, setSelectedImg] = useState(null)
     return (
         <div className="App">
@@ -22,3 +22,4 @@ const App = () => {
 }
 
 export default App
+
