@@ -1,5 +1,6 @@
 // shows a full-size image, when the small-image is clicked
 import React from 'react'
+import { animate, motion } from 'framer-motion'
 
 const Modal = ({ selectedImg, setSelectedImg }) => {
     const handleClick = (e) => {
@@ -9,9 +10,20 @@ const Modal = ({ selectedImg, setSelectedImg }) => {
     }
 
     return (
-        <div className="backdrop" onClick={handleClick}>
-            <img src={selectedImg} alt="enlarged pic" />
-        </div>
+        <motion.div
+            className="backdrop"
+            onClick={handleClick}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+        >
+            <motion.img
+                src={selectedImg}
+                alt="enlarged pic"
+                initial={{ y: '-100vh' }}
+                animate={{ y: 0 }}
+                transition={{delay: 0.1}}
+            />
+        </motion.div>
     )
 }
 
